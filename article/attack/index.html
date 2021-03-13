@@ -43,7 +43,7 @@
 <meta property="og:description" content="在討論常見的網站攻擊方式之前，可以先認識一下 OWASP。  Open Web Application Security Project  OWASP 是一個線上社群，介紹了各種不同的網路安全問題、每幾年的十大安全問題排名跟範例，完全免費，基本上是所有做資訊安全的聖經。 推薦 techbridge 的 這篇文章，講了 2010 及 2013 的前十大網站攻擊排行，以及 這篇 是官方在 2017 年">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-03-11T07:51:12.000Z">
-<meta property="article:modified_time" content="2021-03-11T08:17:31.444Z">
+<meta property="article:modified_time" content="2021-03-13T15:39:56.355Z">
 <meta property="article:author" content="Yu">
 <meta property="article:tag" content="資訊安全">
 <meta property="article:tag" content="XSS">
@@ -119,7 +119,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -167,8 +167,23 @@
 </div>
 
 
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%84%B2%E5%AD%98%E5%9E%8B"><span class="toc-text">儲存型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8B"><span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-XSS"><span class="toc-text">DOM XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Injection"><span class="toc-text">SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF"><span class="toc-text">CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Double-Submit-Cookie"><span class="toc-text">Double Submit Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Samesite"><span class="toc-text">Samesite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E8%B6%A3%E7%9A%84%E6%B8%AC%E8%A9%A6%E5%B0%8F%E9%81%8A%E6%88%B2"><span class="toc-text">有趣的測試小遊戲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="toc-text">資料來源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85%E8%B3%87%E6%96%99"><span class="toc-text">補充資料</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%84%B2%E5%AD%98%E5%9E%8B"><span class="toc-text">儲存型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8B"><span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-XSS"><span class="toc-text">DOM XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Injection"><span class="toc-text">SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF"><span class="toc-text">CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Double-Submit-Cookie"><span class="toc-text">Double Submit Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Samesite"><span class="toc-text">Samesite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E8%B6%A3%E7%9A%84%E6%B8%AC%E8%A9%A6%E5%B0%8F%E9%81%8A%E6%88%B2"><span class="toc-text">有趣的測試小遊戲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="toc-text">資料來源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85%E8%B3%87%E6%96%99"><span class="toc-text">補充資料</span></a></li></ol>
+    </div>
 
-<article class="post content-card">
+
+<article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
         <p>在討論常見的網站攻擊方式之前，可以先認識一下 <strong>OWASP</strong>。</p>
@@ -245,24 +260,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: session_id&#x3D;ewfewjf23o1; SameSite &#x2F;&#x2F; 預設模式為 SameSite&#x3D;strict</span><br><span class="line">Set-Cookie: session_id&#x3D;ewfewjf23o1; SameSite&#x3D;Lax &#x2F;&#x2F; 或是自行設定為 Lax</span><br></pre></td></tr></table></figure>
 
 <p>透過瀏覽器設定的方式是目前最推薦的做法，<code>Lax</code> 與 <code>strict</code> 的差別，及更詳細資訊可參考 <a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/02/25/csrf-introduction/">這篇文章</a>，這邊的筆記也都是參考此篇文章的。</p>
-<h3 id="有趣的測試小遊戲"><a href="#有趣的測試小遊戲" class="headerlink" title="有趣的測試小遊戲"></a>有趣的測試小遊戲</h3><p>這幾個遊戲都是讓你練習該如何學習駭客透過 XSS 及其他方式執行程式碼。</p>
+<h2 id="有趣的測試小遊戲"><a href="#有趣的測試小遊戲" class="headerlink" title="有趣的測試小遊戲"></a>有趣的測試小遊戲</h2><p>這幾個遊戲都是讓你練習該如何學習駭客透過 XSS 及其他方式執行程式碼。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://xss-game.appspot.com/">https://xss-game.appspot.com/</a> (<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=MMMkvHwqPRY">解題影片</a>)</li>
 <li><a target="_blank" rel="noopener" href="http://xss-quiz.int21h.jp/">http://xss-quiz.int21h.jp/</a> (可能會被 chrome 擋下來，可以試著用其他瀏覽器玩)</li>
 <li><a target="_blank" rel="noopener" href="http://www.hackertest.net/">http://www.hackertest.net/</a></li>
 </ul>
-<h3 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h3><ul>
+<h2 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://forum.gamer.com.tw/Co.php?bsn=60292&sn=11267">【網頁安全】給網頁開發新人的 XSS 攻擊介紹與防範</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.puritys.me/docs-blog/article-11-SQL-Injection-%E5%B8%B8%E8%A6%8B%E7%9A%84%E9%A7%AD%E5%AE%A2%E6%94%BB%E6%93%8A%E6%96%B9%E5%BC%8F.html">SQL Injection 常見的駭客攻擊方式</a></li>
 </ul>
-<h3 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h3><ul>
+<h2 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016551188">前端安全系列（一）：如何防止 XSS 攻击？</a></li>
 <li><a target="_blank" rel="noopener" href="https://medium.com/@jaydenlin/%E6%B7%BA%E8%AB%87%E9%A7%AD%E5%AE%A2%E6%94%BB%E6%93%8A-%E7%B6%B2%E7%AB%99%E5%AE%89%E5%85%A8-%E4%B8%80%E6%AC%A1%E7%9C%8B%E6%87%82-sql-injection-%E7%9A%84%E6%94%BB%E6%93%8A%E5%8E%9F%E7%90%86-b1994fd2392a">一次看懂 SQL Injection 的攻擊原理</a></li>
 </ul>
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2021-03-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2021-03-13</p></div> 
     <div class="post-meta__cats"><a href="/blog/tags/%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="post-tags__link button"># 資訊安全</a><a href="/blog/tags/XSS/" class="post-tags__link button"># XSS</a><a href="/blog/tags/SQL-injection/" class="post-tags__link button"># SQL injection</a><a href="/blog/tags/CSRF/" class="post-tags__link button"># CSRF</a></div> 
 </article>
 
