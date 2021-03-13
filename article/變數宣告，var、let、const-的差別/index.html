@@ -95,12 +95,18 @@
                 
                     <a href="/blog/archives/" class="navbar-menu button">目錄</a>
                 
+                    <a href="/blog/tags/" class="navbar-menu button">標籤</a>
+                
                     <a href="/blog/about/" class="navbar-menu button">關於</a>
                 
             </div>
         
         
         
+    <a href="/blog/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
 
         
         
@@ -110,7 +116,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="回到頂部" title="回到頂部">
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -124,6 +130,8 @@
                     <a href="/blog/" class="dropdown-menu button">首頁</a>
                 
                     <a href="/blog/archives/" class="dropdown-menu button">目錄</a>
+                
+                    <a href="/blog/tags/" class="dropdown-menu button">標籤</a>
                 
                     <a href="/blog/about/" class="dropdown-menu button">關於</a>
                 
@@ -180,7 +188,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const 仍可成功改值</span></span><br><span class="line"><span class="keyword">const</span> b = &#123;</span><br><span class="line">  number: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">b.number = <span class="number">2</span>; <span class="comment">// b 貼著的箱子裡仍然是同一個記憶體位置</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// &#123;number: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const 無法成功改值</span></span><br><span class="line"><span class="keyword">const</span> b = &#123;</span><br><span class="line">  number: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">b = &#123; <span class="comment">// b 貼著的箱子要存放不同的記憶體</span></span><br><span class="line">  number: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 因此就會噴以下錯誤訊息</span></span><br><span class="line"><span class="comment">// Uncaught TypeError: Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
     </div>
      
-    <div class="post-footer__meta"><p>更新於 2021-03-09</p></div> 
+    <div class="post-footer__meta"><p>更新于 2021-03-09</p></div> 
     <div class="post-meta__cats"><a href="/blog/tags/JavaScript/" class="post-tags__link button"># JavaScript</a></div> 
 </article>
 
