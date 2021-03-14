@@ -163,23 +163,8 @@
 </div>
 
 
-    <aside class="post-side">
-        <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%88%91"><span class="toc-text">關於我</span></a></li></ol>
-        </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E6%88%91"><span class="toc-text">關於我</span></a></li></ol>
-    </div>
 
-
-<article class="post post__with-toc content-card">
+<article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
         <h2 id="關於我"><a href="#關於我" class="headerlink" title="關於我"></a>關於我</h2><p>我是 Yu，在台灣的網頁前端工程師。</p>
@@ -194,6 +179,26 @@
 
 
 
+
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    <div id="disqus_thread">Unable to load Disqus, please make sure your network can access.</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
 
 
 
@@ -247,6 +252,62 @@
 
  
 
+
+    
+    <script>
+        function loadComment() {
+            window.disqus_config = function () {
+                this.page.url = 'https://yu040419.github.io/blog/about/index.html';
+                this.page.identifier = 'about/index.html';
+            };
+            (function(){
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + 'yu040419' + '.disqus.com/embed.js';
+                (document.head || document.body).appendChild(dsq);
+            })();
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
 
 
 

@@ -25,30 +25,29 @@
     <!-- meta -->
 
 
-<title>密碼保護 | Yu&#39;s Blog</title>
+<title>快取 Cache 是什麼？（下） | Yu&#39;s Blog</title>
 
 
-    <meta name="keywords" content="資訊安全, 加密, 雜湊, 編碼">
+    <meta name="keywords" content="cache, CDN, Proxy Server">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="當我們把帳號密碼都存在資料庫當中，有個最大的隱憂就是，一旦資料庫遭駭，駭客就可以拿到所有的帳號密碼，造成資訊安全上的危害。 以下簡單簡介常見的幾種密碼保護方式： 編碼 編碼，encode；解碼，decode  編碼並不會修改資料、也沒有任何加密的效果，單純就是換個方式來表達資料而已。最常見的就是摩斯密碼。 對資訊安全，一點幫助都沒有。 加密 加密，encryption  資料加密之前叫做「明文 p">
+    <meta name="description" content="上一篇介紹了什麼是快取，也簡單了解了網頁 Client-side 的快取，想了解的可以點選 快取 Cache 是什麼？（上） 認識。 在這篇當中會簡單談 Proxy Server 代理伺服器的快取，以及網頁 Server-side 的快取。 Proxy Server 代理伺服器，也稱為前向代理  代理伺服器顧名思義就是一個代理人的概念，介於 client 端跟 server 端的中間人，需要由 c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="密碼保護">
-<meta property="og:url" content="https://yu040419.github.io/blog/article/password/index.html">
+<meta property="og:title" content="快取 Cache 是什麼？（下）">
+<meta property="og:url" content="https://yu040419.github.io/blog/article/cache-2/index.html">
 <meta property="og:site_name" content="Yu&#39;s Blog">
-<meta property="og:description" content="當我們把帳號密碼都存在資料庫當中，有個最大的隱憂就是，一旦資料庫遭駭，駭客就可以拿到所有的帳號密碼，造成資訊安全上的危害。 以下簡單簡介常見的幾種密碼保護方式： 編碼 編碼，encode；解碼，decode  編碼並不會修改資料、也沒有任何加密的效果，單純就是換個方式來表達資料而已。最常見的就是摩斯密碼。 對資訊安全，一點幫助都沒有。 加密 加密，encryption  資料加密之前叫做「明文 p">
+<meta property="og:description" content="上一篇介紹了什麼是快取，也簡單了解了網頁 Client-side 的快取，想了解的可以點選 快取 Cache 是什麼？（上） 認識。 在這篇當中會簡單談 Proxy Server 代理伺服器的快取，以及網頁 Server-side 的快取。 Proxy Server 代理伺服器，也稱為前向代理  代理伺服器顧名思義就是一個代理人的概念，介於 client 端跟 server 端的中間人，需要由 c">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-03-11T07:40:23.000Z">
-<meta property="article:modified_time" content="2021-03-13T15:40:08.882Z">
+<meta property="article:published_time" content="2021-03-14T06:24:28.000Z">
+<meta property="article:modified_time" content="2021-03-14T06:35:46.843Z">
 <meta property="article:author" content="Yu">
-<meta property="article:tag" content="資訊安全">
-<meta property="article:tag" content="加密">
-<meta property="article:tag" content="雜湊">
-<meta property="article:tag" content="編碼">
+<meta property="article:tag" content="cache">
+<meta property="article:tag" content="CDN">
+<meta property="article:tag" content="Proxy Server">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -149,10 +148,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        密碼保護
+        快取 Cache 是什麼？（下）
     </h1>
     <div class="post-title__meta">
-        <a href="/blog/archives/2021/03/" class="post-meta__date button">2021-03-11</a>
+        <a href="/blog/archives/2021/03/" class="post-meta__date button">2021-03-14</a>
         
  
         
@@ -171,93 +170,87 @@
 <article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <p>當我們把帳號密碼都存在資料庫當中，有個最大的隱憂就是，一旦資料庫遭駭，駭客就可以拿到所有的帳號密碼，造成資訊安全上的危害。</p>
-<p>以下簡單簡介常見的幾種密碼保護方式：</p>
-<h2 id="編碼"><a href="#編碼" class="headerlink" title="編碼"></a>編碼</h2><blockquote>
-<p>編碼，encode；解碼，decode</p>
+        <p>上一篇介紹了什麼是快取，也簡單了解了網頁 Client-side 的快取，想了解的可以點選 <a href="https://yu040419.github.io/blog/article/cache-1/">快取 Cache 是什麼？（上）</a> 認識。</p>
+<p>在這篇當中會簡單談 Proxy Server 代理伺服器的快取，以及網頁 Server-side 的快取。</p>
+<h2 id="Proxy-Server"><a href="#Proxy-Server" class="headerlink" title="Proxy Server"></a>Proxy Server</h2><blockquote>
+<p>代理伺服器，也稱為前向代理</p>
 </blockquote>
-<p>編碼並不會修改資料、也沒有任何加密的效果，單純就是換個方式來表達資料而已。最常見的就是摩斯密碼。</p>
-<p>對資訊安全，一點幫助都沒有。</p>
-<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><blockquote>
-<p>加密，encryption</p>
-</blockquote>
-<p>資料加密之前叫做「明文 plaintext」，加密之後叫做「密文 ciphertext」。「加密」是明文變密文，「解密」是密文變明文。</p>
-<p>加密有幾個特性：</p>
+<p>代理伺服器顧名思義就是一個代理人的概念，介於 client 端跟 server 端的中間人，需要由 client 端設定。做的事情包含：</p>
 <ul>
-<li>加密是一對一的關係，也就是說密文在固定加密演算法下，只會對應到一個明文。因而衍伸加密的重要特性，<strong>可以解密</strong>。</li>
-<li>需要密鑰 (key) 才可以進行加密及解密。</li>
-<li>分為對稱加密及不對稱加密。<ul>
-<li>對稱加密只會有一把密鑰。常見的對稱加密法是 AES。</li>
-<li>不對稱加密會有兩把密鑰，一把公鑰 ( public key ) 一把私鑰 ( private key )，公鑰負責加密，私鑰負責解密。常見的不對稱加密法是 RSA。</li>
+<li>代理 client 發送 request</li>
+<li>連接網際網路</li>
+<li>將資料存在自己的快取</li>
+<li>收到 server 的 response 並回覆給 client</li>
+</ul>
+<p>也因為 Proxy Server 這個中間人的關係，所以間接形成一個防火牆，當外部要攻擊 client 端時，就會攻擊到 Proxy Server，因為所有請求的 IP 位址都是 Proxy Server。</p>
+<p>一般來說常見的架構是，多個 client 對應一個 proxy server。在這樣的狀況下，當 client A 請求過 R 網站，隔天 client B 也想要請求 R 網站時，proxy server 就會依照快取的設定檢查有無過期後，直接從快取拿資料回傳給 cient B，達到降低負載的效果。</p>
+<p>但一旦請求太多，proxy server 也是有可能會有應付不來的可能，這時候就可以考慮幫 proxy Server 設置他的上層代理伺服器（類似幫這個 proxy server 再開幾台 proxy server 的概念），詳細可以參考 <a target="_blank" rel="noopener" href="http://linux.vbird.org/linux_server/0420squid.php#theory_parent_proxy">鳥哥的文章</a>。</p>
+<p>Proxy Server 特色包含：</p>
+<ul>
+<li>因為快取加快網頁存取速度、減少網路頻寬浪費</li>
+<li>提供類似防火牆功能保護 client</li>
+<li>搭配上層代理伺服器可達成降低負載（Load Balance）的效果</li>
+</ul>
+<p>Proxy Server 雖然好用，但有幾個致命的缺點：</p>
+<ul>
+<li>因為隱藏 client 的 IP 位址，可能會被濫用做壞事</li>
+<li>由使用者設定，對一般大眾門檻太高。且因設定不易，可能會因為快取機制拿到舊資料</li>
+</ul>
+<p>因此就誕生了 CDN。</p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><blockquote>
+<p>Content Delivery Network，內容傳遞網路</p>
+</blockquote>
+<h3 id="Reverse-Proxy"><a href="#Reverse-Proxy" class="headerlink" title="Reverse Proxy"></a>Reverse Proxy</h3><p>在討論 CDN 之前，要先來談談反向代理伺服器（Reverse Proxy），因為 CDN 是反向代理的應用之一。那什麼是反向代理呢？其實很多概念跟 Proxy Server 類似，最大的不同就是，反向代理的人並非 client，而是 Server。</p>
+<p>反向代理的特色包含：</p>
+<ul>
+<li>一般大眾使用門檻低：因為由 server 端進行設定，所以使用者不須做任何設定</li>
+<li>保護 Server：跟前向代理（proxy server）相反，因為接收 response 的 IP 位址都是反向代理的，所以外部要攻擊 server 的難度提升不少</li>
+<li>壓縮內容以節省網路頻寬</li>
+<li>保留前向代理的優點：<ul>
+<li>提供快取加快使用者存取速度</li>
+<li>降低伺服器負載</li>
 </ul>
 </li>
 </ul>
-<h2 id="雜湊"><a href="#雜湊" class="headerlink" title="雜湊"></a>雜湊</h2><blockquote>
-<p>雜湊，Hash function，又稱雜湊函式或是雜湊演算法</p>
-</blockquote>
-<p>雜湊有幾個特性：</p>
+<h3 id="運作特色"><a href="#運作特色" class="headerlink" title="運作特色"></a>運作特色</h3><p>CDN 的概念就向是 Server 端將反向代理伺服器放在各個地方，降低原先 client 發送 request 到距離更遠的地方時，可能產生的網路連接及交換問題。</p>
+<p>除了 反向代理原本的特色外，CDN 特色還包含：</p>
 <ul>
-<li>是單向函式 / 演算法，不能從輸出還原出原本的輸入。</li>
-<li>同樣的輸入經過雜湊後，一定會得到同樣的輸出。</li>
-<li>不同長度的輸入，會得到固定長度的輸出。</li>
-<li>類似鴿籠原理，因為是固定長度的輸出，所以不同輸入可能會產生同個輸出。這樣的情況稱為<strong>碰撞</strong> Collision。但一般知名的雜湊發生碰撞的機率很低。</li>
-<li>通常會<strong>加鹽</strong> (salting)。加鹽通常會自動幫使用者產生一段亂碼，可以穿插放在雜湊前中後，有資安概念的可能會每個人都加上一樣的鹽，厲害點的可以每個人的鹽都不同。一般鹽會由亂數產生，然後把鹽也存在資料庫中，這樣就能有更高的防範，</li>
+<li>提高傳輸效能：CDN 可以依照使用者的位置連接距離最近、最順暢的反向代理</li>
+<li>提高系統穩定性：<ul>
+<li>當某個反向代理伺服器遭到攻擊時，CDN 就可以將 request 連接到其他的反向快取，繼續提供服務</li>
+<li>Server 當機時，也因為 CDN 的快取機制讓使用者不至於都無法連線</li>
 </ul>
-<p>常見的雜湊演算法:</p>
-<ul>
-<li>MD5 （ 已被證實不安全 ）</li>
-<li>SHA-1 （ 已被證實不安全 ）</li>
-<li>SHA-256 （ 比 MD5 還強、安全性更高的雜湊函數，但對於伺服器來說，越安全、也代表速度越慢 ）</li>
+</li>
 </ul>
-<p>但雜湊也不是說不能解，其實就有一張彩虹表（rainbow table），用原本已經做好字串與雜湊值對照的表格，去強硬破解資料庫裡的密碼。所以由此就可以知道加鹽的重要性。</p>
-<p>加密及雜湊兩個在資訊領域中，都是對資料的處理方法，兩者最大的差別就在於</p>
-<blockquote>
-<p>加密可以進行解密（可逆），但雜湊不行還原（不可逆）。</p>
-</blockquote>
-<p>除此之外， hash 也常用在檢查檔案的完整性，許多軟體會提供 hash 過後的文字（校驗碼），讓使用者下載過後可以自行驗證檔案是否有被更改或加料過。</p>
+<h3 id="注意要點"><a href="#注意要點" class="headerlink" title="注意要點"></a>注意要點</h3><p>Server 端在設定 CDN 的快取有效時間，跟 CDN 回覆給 client 端的快取有效時間需要一致，否則會發生資料不同步的事情。可參考 <a target="_blank" rel="noopener" href="https://mark-lin.com/posts/20190921/">網路傳輸的加速 - CDN 與 HTTP 緩存</a>。</p>
+<h2 id="Server-Side"><a href="#Server-Side" class="headerlink" title="Server-Side"></a>Server-Side</h2><p>Server-Side 的快取有很多種，這邊主要談的是 Object Cache，類似資料庫的快取，而眾多資料庫快取當中，這邊只會簡單介紹 Redis。</p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis 是 in memory 的 key-value 資料庫，位置在 Web Server 跟 DB 中間。因為 DB 的資料都存放在磁碟或 SSD 上，而 Redis 資料都位於記憶體內，有了 Redis 之後，可以省去存取磁碟的麻煩、避免搜尋時間延遲，並在幾微秒的時間內存取資料。</p>
 <h2 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://lidemy.com/"> [BE101] 用 PHP 與 MySQL 學習後端基礎</a></li>
-<li><a target="_blank" rel="noopener" href="https://medium.com/starbugs/what-are-encoding-encrypt-and-hashing-4b03d40e7b0c">一次搞懂密碼學中的三兄弟 — Encode、Encrypt 跟 Hash</a></li>
-<li><a target="_blank" rel="noopener" href="https://yakimhsu.com/project/project_w11_Info_Security-Hash.html">[第十一週] 資訊安全 - 為什麼密碼要經過雜湊 ？</a></li>
-</ul>
-<h2 id="推薦閱讀"><a href="#推薦閱讀" class="headerlink" title="推薦閱讀"></a>推薦閱讀</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://dropbox.tech/security/how-dropbox-securely-stores-your-passwords">How Dropbox securely stores your passwords</a></li>
+<li><a target="_blank" rel="noopener" href="https://mark-lin.com/posts/20190921/">網路傳輸的加速 - CDN 與 HTTP 緩存</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86">反向代理</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%85%A7%E5%AE%B9%E5%82%B3%E9%81%9E%E7%B6%B2%E8%B7%AF">CDN</a></li>
 </ul>
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2021-03-13</p></div> 
-    <div class="post-meta__cats"><a href="/blog/tags/%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="post-tags__link button"># 資訊安全</a><a href="/blog/tags/%E5%8A%A0%E5%AF%86/" class="post-tags__link button"># 加密</a><a href="/blog/tags/%E9%9B%9C%E6%B9%8A/" class="post-tags__link button"># 雜湊</a><a href="/blog/tags/%E7%B7%A8%E7%A2%BC/" class="post-tags__link button"># 編碼</a></div> 
+    <div class="post-footer__meta"><p>updated at 2021-03-14</p></div> 
+    <div class="post-meta__cats"><a href="/blog/tags/cache/" class="post-tags__link button"># cache</a><a href="/blog/tags/CDN/" class="post-tags__link button"># CDN</a><a href="/blog/tags/Proxy-Server/" class="post-tags__link button"># Proxy Server</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/blog/article/attack/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            常見的網站攻擊方式
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/blog/article/%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/" class="nav__link">
+                <a href="/blog/article/cache-1/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            JavaScript 資料型別
+                            快取 Cache 是什麼？（上）
                         </div>
                     </div>
                     <div>
@@ -347,8 +340,8 @@
     <script>
         function loadComment() {
             window.disqus_config = function () {
-                this.page.url = 'https://yu040419.github.io/blog/article/password/';
-                this.page.identifier = 'article/password/';
+                this.page.url = 'https://yu040419.github.io/blog/article/cache-2/';
+                this.page.identifier = 'article/cache-2/';
             };
             (function(){
                 var dsq = document.createElement('script');

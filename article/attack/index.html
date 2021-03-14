@@ -43,7 +43,7 @@
 <meta property="og:description" content="在討論常見的網站攻擊方式之前，可以先認識一下 OWASP。  Open Web Application Security Project  OWASP 是一個線上社群，介紹了各種不同的網路安全問題、每幾年的十大安全問題排名跟範例，完全免費，基本上是所有做資訊安全的聖經。 推薦 techbridge 的 這篇文章，講了 2010 及 2013 的前十大網站攻擊排行，以及 這篇 是官方在 2017 年">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-03-11T07:51:12.000Z">
-<meta property="article:modified_time" content="2021-03-13T15:39:56.355Z">
+<meta property="article:modified_time" content="2021-03-14T05:29:10.860Z">
 <meta property="article:author" content="Yu">
 <meta property="article:tag" content="資訊安全">
 <meta property="article:tag" content="XSS">
@@ -167,23 +167,8 @@
 </div>
 
 
-    <aside class="post-side">
-        <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%84%B2%E5%AD%98%E5%9E%8B"><span class="toc-text">儲存型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8B"><span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-XSS"><span class="toc-text">DOM XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Injection"><span class="toc-text">SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF"><span class="toc-text">CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Double-Submit-Cookie"><span class="toc-text">Double Submit Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Samesite"><span class="toc-text">Samesite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E8%B6%A3%E7%9A%84%E6%B8%AC%E8%A9%A6%E5%B0%8F%E9%81%8A%E6%88%B2"><span class="toc-text">有趣的測試小遊戲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="toc-text">資料來源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85%E8%B3%87%E6%96%99"><span class="toc-text">補充資料</span></a></li></ol>
-        </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%84%B2%E5%AD%98%E5%9E%8B"><span class="toc-text">儲存型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8B"><span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-XSS"><span class="toc-text">DOM XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Injection"><span class="toc-text">SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF"><span class="toc-text">CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Double-Submit-Cookie"><span class="toc-text">Double Submit Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Samesite"><span class="toc-text">Samesite</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E8%B6%A3%E7%9A%84%E6%B8%AC%E8%A9%A6%E5%B0%8F%E9%81%8A%E6%88%B2"><span class="toc-text">有趣的測試小遊戲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="toc-text">資料來源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85%E8%B3%87%E6%96%99"><span class="toc-text">補充資料</span></a></li></ol>
-    </div>
 
-
-<article class="post post__with-toc content-card">
+<article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
         <p>在討論常見的網站攻擊方式之前，可以先認識一下 <strong>OWASP</strong>。</p>
@@ -201,7 +186,9 @@
 
 <p>所以要做的事情，就是防範讓伺服器知道這並不是程式碼，而只是一般的文字。可以透過 php 內建的 <code>htmlspecialchars</code> 達成這件事。</p>
 <p>但要特別注意的是，並不是像 hash 一樣，在輸入密碼後就馬上處理並將 hash 過的內容存在資料庫，而是儲存原本的字元在資料庫，輸出時再經由<code>htmlspecialchars</code> 轉化。因為輸入防不勝防，直接解決輸出才能打到痛點。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escape</span>(<span class="params"><span class="variable">$str</span></span>) </span>&#123; <span class="comment">// 之後就可以呼叫 escape()</span></span><br><span class="line">  <span class="keyword">return</span> htmlspecialchars(<span class="variable">$str</span>, ENT_QUOTES);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// index.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;div class=&#x27;comment__info--name&#x27;&gt;&quot;</span> . escape(<span class="variable">$row</span>[<span class="string">&#x27;nickname&#x27;</span>]) . <span class="string">&quot;&lt;/div&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;textarea class=&#x27;comment__text&#x27;&gt;&quot;</span> . escape(<span class="variable">$row</span>[<span class="string">&#x27;text&#x27;</span>]) . <span class="string">&quot;&lt;/textarea&gt;&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><figcaption><span>utils.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escape</span>(<span class="params"><span class="variable">$str</span></span>) </span>&#123; <span class="comment">// 之後就可以呼叫 escape()</span></span><br><span class="line">  <span class="keyword">return</span> htmlspecialchars(<span class="variable">$str</span>, ENT_QUOTES);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><figcaption><span>index.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;div class=&#x27;comment__info--name&#x27;&gt;&quot;</span> . escape(<span class="variable">$row</span>[<span class="string">&#x27;nickname&#x27;</span>]) . <span class="string">&quot;&lt;/div&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;textarea class=&#x27;comment__text&#x27;&gt;&quot;</span> . escape(<span class="variable">$row</span>[<span class="string">&#x27;text&#x27;</span>]) . <span class="string">&quot;&lt;/textarea&gt;&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="儲存型"><a href="#儲存型" class="headerlink" title="儲存型"></a>儲存型</h3><blockquote>
 <p>stored XSS，或被稱為 persisted XSS</p>
@@ -236,9 +223,9 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> members <span class="keyword">where</span> account<span class="operator">=</span><span class="string">&#x27;&#x27;</span> <span class="keyword">or</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span> <span class="comment">/*&#x27; and password=&#x27;&#x27;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">where 條件變成 account = 空值或是 1=1 是 true 的話</span></span><br><span class="line"><span class="comment">1=1 一定是 true 所以就可以成功登入</span></span><br><span class="line"><span class="comment">而且會發現後面被註解掉了</span></span><br><span class="line"><span class="comment">（透過這樣拿到的值通常是資料表第一筆）</span></span><br></pre></td></tr></table></figure>
 
 <p>這時候可以透過 MySQL 內建的語法 <strong>Prepared Statements</strong> 來解決這個問題。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 原本用 sprintf() 拼接，現在刪掉並將變數值換成 ?</span></span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;INSERT INTO yu_comments(user_id, text) VALUES (?, ?)&quot;</span>;</span><br><span class="line"><span class="comment">// stmt 是 statement 的常見縮寫</span></span><br><span class="line"><span class="variable">$stmt</span> = <span class="variable">$conn</span>-&gt;prepare(<span class="variable">$sql</span>);</span><br><span class="line"><span class="comment">// 將參數依序放進，第一個代表有兩個參數，一個是 i (interger)，一個是 s (string)</span></span><br><span class="line"><span class="variable">$stmt</span>-&gt;bind_param(<span class="string">&#x27;is&#x27;</span>, <span class="variable">$user_id</span>, <span class="variable">$text</span>);</span><br><span class="line"><span class="comment">// 最後執行</span></span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">//...其他照常...</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><figcaption><span>add.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 原本用 sprintf() 拼接，現在刪掉並將變數值換成 ?</span></span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;INSERT INTO yu_comments(user_id, text) VALUES (?, ?)&quot;</span>;</span><br><span class="line"><span class="comment">// stmt 是 statement 的常見縮寫</span></span><br><span class="line"><span class="variable">$stmt</span> = <span class="variable">$conn</span>-&gt;prepare(<span class="variable">$sql</span>);</span><br><span class="line"><span class="comment">// 將參數依序放進，第一個代表有兩個參數，一個是 i (interger)，一個是 s (string)</span></span><br><span class="line"><span class="variable">$stmt</span>-&gt;bind_param(<span class="string">&#x27;is&#x27;</span>, <span class="variable">$user_id</span>, <span class="variable">$text</span>);</span><br><span class="line"><span class="comment">// 最後執行</span></span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">//...其他照常...</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// login.php</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//...上面照常...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 改成問號</span></span><br><span class="line">  <span class="variable">$sql</span> =  <span class="string">&quot;SELECT * FROM yu_users WHERE username=?&quot;</span></span><br><span class="line">  <span class="variable">$stmt</span> = <span class="variable">$conn</span>-&gt;prepare(<span class="variable">$sql</span>);</span><br><span class="line">  <span class="comment">// 只有一個字串</span></span><br><span class="line">  <span class="variable">$stmt</span>-&gt;bind_param(<span class="string">&#x27;s&#x27;</span>, <span class="variable">$username</span>);</span><br><span class="line">  <span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;execute();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!<span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="variable">$conn</span>-&gt;error);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 這裡記得要透過 get_result() 拿到資料</span></span><br><span class="line">  <span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;get_result();</span><br><span class="line">  <span class="comment">// 這裡開始底下如舊</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$result</span>-&gt;num_rows === <span class="number">0</span>) &#123;</span><br><span class="line">    header(<span class="string">&#x27;Location: login_page.php?errcode=2&#x27;</span>);</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$row</span> = <span class="variable">$result</span>-&gt;fetch_assoc();</span><br><span class="line">  <span class="keyword">if</span> (password_verify(<span class="variable">$password</span>, <span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>] = <span class="variable">$username</span>;</span><br><span class="line">    header(<span class="string">&#x27;Location: index.php&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">&#x27;Location: login_page.php?errcode=2&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><figcaption><span>login.php</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//...上面照常...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 改成問號</span></span><br><span class="line">  <span class="variable">$sql</span> =  <span class="string">&quot;SELECT * FROM yu_users WHERE username=?&quot;</span></span><br><span class="line">  <span class="variable">$stmt</span> = <span class="variable">$conn</span>-&gt;prepare(<span class="variable">$sql</span>);</span><br><span class="line">  <span class="comment">// 只有一個字串</span></span><br><span class="line">  <span class="variable">$stmt</span>-&gt;bind_param(<span class="string">&#x27;s&#x27;</span>, <span class="variable">$username</span>);</span><br><span class="line">  <span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;execute();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!<span class="variable">$result</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="variable">$conn</span>-&gt;error);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 這裡記得要透過 get_result() 拿到資料</span></span><br><span class="line">  <span class="variable">$result</span> = <span class="variable">$stmt</span>-&gt;get_result();</span><br><span class="line">  <span class="comment">// 這裡開始底下如舊</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$result</span>-&gt;num_rows === <span class="number">0</span>) &#123;</span><br><span class="line">    header(<span class="string">&#x27;Location: login_page.php?errcode=2&#x27;</span>);</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$row</span> = <span class="variable">$result</span>-&gt;fetch_assoc();</span><br><span class="line">  <span class="keyword">if</span> (password_verify(<span class="variable">$password</span>, <span class="variable">$row</span>[<span class="string">&#x27;password&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>] = <span class="variable">$username</span>;</span><br><span class="line">    header(<span class="string">&#x27;Location: index.php&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">&#x27;Location: login_page.php?errcode=2&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>幾件事情要注意：</p>
 <ul>
@@ -277,13 +264,27 @@
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2021-03-13</p></div> 
+    <div class="post-footer__meta"><p>updated at 2021-03-14</p></div> 
     <div class="post-meta__cats"><a href="/blog/tags/%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="post-tags__link button"># 資訊安全</a><a href="/blog/tags/XSS/" class="post-tags__link button"># XSS</a><a href="/blog/tags/SQL-injection/" class="post-tags__link button"># SQL injection</a><a href="/blog/tags/CSRF/" class="post-tags__link button"># CSRF</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
+            
+                <a href="/blog/article/cache-1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            快取 Cache 是什麼？（上）
+                        </div>
+                    </div>
+                </a>
             
         </div>
         <div class="nav__next">
@@ -306,6 +307,26 @@
     </div>
 
 
+
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    <div id="disqus_thread">Unable to load Disqus, please make sure your network can access.</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
 
 
 
@@ -359,6 +380,62 @@
 
  
 
+
+    
+    <script>
+        function loadComment() {
+            window.disqus_config = function () {
+                this.page.url = 'https://yu040419.github.io/blog/article/attack/';
+                this.page.identifier = 'article/attack/';
+            };
+            (function(){
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + 'yu040419' + '.disqus.com/embed.js';
+                (document.head || document.body).appendChild(dsq);
+            })();
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
 
 
 

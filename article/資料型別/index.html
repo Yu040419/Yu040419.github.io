@@ -164,23 +164,8 @@
 </div>
 
 
-    <aside class="post-side">
-        <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%A8%E5%88%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">辨別方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5-VS-%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5"><span class="toc-text">原始型別 VS 物件型別</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%90%A6%E6%9B%B4%E6%94%B9%E5%8E%9F%E5%80%BC"><span class="toc-text">可否更改原值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%8A%E6%95%B8%E5%AD%98%E6%94%BE%E6%96%B9%E5%BC%8F"><span class="toc-text">變數存放方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%88%87-%E8%88%87"><span class="toc-text">&#x3D; 與 &#x3D;&#x3D; 與 &#x3D;&#x3D;&#x3D;</span></a></li></ol>
-        </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%A8%E5%88%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">辨別方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5-VS-%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5"><span class="toc-text">原始型別 VS 物件型別</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%90%A6%E6%9B%B4%E6%94%B9%E5%8E%9F%E5%80%BC"><span class="toc-text">可否更改原值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%8A%E6%95%B8%E5%AD%98%E6%94%BE%E6%96%B9%E5%BC%8F"><span class="toc-text">變數存放方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%88%87-%E8%88%87"><span class="toc-text">&#x3D; 與 &#x3D;&#x3D; 與 &#x3D;&#x3D;&#x3D;</span></a></li></ol>
-    </div>
 
-
-<article class="post post__with-toc content-card">
+<article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
         <p>JavaScript 資料型別有七種，又分為<strong>原始型別</strong>及<strong>物件型別</strong>。</p>
@@ -271,6 +256,26 @@
 
 
 
+    <div class="post__comments content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    <div id="disqus_thread">Unable to load Disqus, please make sure your network can access.</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    </div>
+
 
 
 </main>
@@ -323,6 +328,62 @@
 
  
 
+
+    
+    <script>
+        function loadComment() {
+            window.disqus_config = function () {
+                this.page.url = 'https://yu040419.github.io/blog/article/%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5/';
+                this.page.identifier = 'article/資料型別/';
+            };
+            (function(){
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + 'yu040419' + '.disqus.com/embed.js';
+                (document.head || document.body).appendChild(dsq);
+            })();
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
+            }
+        }, 1);
+    </script>
+
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
 
 
 
